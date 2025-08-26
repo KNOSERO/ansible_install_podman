@@ -1,5 +1,22 @@
+- name: Ensure dependencies for Podman are installed
+  apt:
+    name:
+      - software-properties-common
+      - uidmap
+    state: present
+    update_cache: yes
+  when: ansible_facts.os_family == "Debian"
+
 - name: Install latest Podman
   apt:
     name: podman
     state: latest
     update_cache: yes
+  when: ansible_facts.os_family == "Debian"
+
+- name: Allow Jenkins to run Podman as root without password
+  lineinfile:
+    path: /etc/sudoers.d/jenkins
+    create: yes
+    mode: '0440'
+    line: "jenkins ALL=(ALL) NOPASSWD: /usr/bin/podman"
