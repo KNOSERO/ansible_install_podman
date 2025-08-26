@@ -1,0 +1,5 @@
+- name: Install latest Podman
+  apt:
+    name: podman
+    state: latest
+    update_cache: yes

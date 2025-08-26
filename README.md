@@ -1,2 +1,10 @@
-# ansible_install_podman
+# Ansible Install Podman
 Script for installing podman in Ansible
+
+## Example
+
+```yaml
+- name: Install Podman
+  hosts: localhost
+  become: true
+```
