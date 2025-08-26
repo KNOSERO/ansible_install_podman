@@ -9,6 +9,6 @@ Script for installing podman in Ansible
   become: true
 
   tasks:
-    - name: Install Terraform
+    - name: Install Podman
       include_tasks: ./task/ansible_install_podman/playbook.yml 
 ```
